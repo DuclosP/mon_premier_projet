@@ -1,0 +1,19 @@
+<h3>NgIf</h3>
+<p *ngIf="isVisible">Wesh l'ékip !</p>
+<button (click)="toggle()">Toggle</button>
+
+<h3>NgFor</h3>
+<ul>
+    <li *ngFor="let produit of listCourse ; let i = index">{{i}} - {{produit}}</li>
+</ul>
+
+
+
+<h3>ngSwitch</h3>
+<input type="text" [(ngModel)]="maVariable">
+<div [ngSwitch]="maVariable">
+    <div *ngSwitchCase="1">coca</div>
+    <div *ngSwitchCase="2">bière</div>
+    <div *ngSwitchCase="3">fanta</div>
+    <div *ngSwitchDefault>Entrée invalide</div>
+</div>

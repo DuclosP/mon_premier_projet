@@ -1,0 +1,17 @@
+<h3>Liste de course simple</h3>
+<div class="form">
+    <div>
+        <label>Entrez ici votre article</label>
+        <input id="nom" type="text" [(ngModel)]="nom">
+    </div>
+    <div>
+        <label>Entrez ici son prix</label>
+        <input type="text" [(ngModel)]="prix">
+    </div>
+    <div>
+        <label>Entrz ici l'url de l'image</label>
+        <input type="text" [(ngModel)]="img">
+    </div>
+    <button (click)="addToCart()">Ajouter au panier</button>
+    <app-panier (delCart)="delToCart($event)" [cart]="panier"></app-panier>
+</div>

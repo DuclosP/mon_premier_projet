@@ -1,0 +1,73 @@
+<h3>Veuillez complètez le formulaire suivant</h3>
+<form [formGroup]="exoForm" (ngSubmit)="sendData()">
+    <div>
+        <label for="registre">Votre registre nastioal</label>
+        <input type="text" id="registre" formControlName="registre">
+        <p class="err" *ngIf="!exoForm.get('registre')?.valid && exoForm.get('registre')?.touched">Ce champs est obligatoire</p>
+    </div>
+    <div>
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" formControlName="nom">
+        <p class="err" *ngIf="!exoForm.get('nom')?.valid && exoForm.get('nom')?.touched ">Ce champs est obligatoire</p>
+    </div>
+    
+    <div>
+        <label for="prenom">Prénom</label>
+        <input type="text" id="prenom" formControlName="prenom">
+        <p class="err" *ngIf="!exoForm.get('prenom')?.valid && exoForm.get('prenom')?.touched">Ce champs est obligatoire</p>
+    </div>
+
+    <div>
+        <label for="genre">Votre genre</label>
+        <div>
+            <label for="homme">H</label>
+            <input type="radio" id="homme" name="genre" value="H" formControlName="genre">
+            <label for="femme">F</label>
+            <input type="radio" id="homme" name="genre" value="F" formControlName="genre">
+            <label for="autre">Autre</label>
+            <input type="radio" id="homme" name="genre" value="autre" formControlName="genre">
+        </div>
+    </div>
+    <div>
+        <label for="birthday">Votre date de naissance</label>
+        <input type="date" id="birthday" formControlName="birthday">
+        <p class="err" *ngIf="exoForm.get('birthday')?.errors?.['verifAge'] && exoForm.get('birthday')?.touched">Vous devez êtres Majeure</p>
+    </div>
+    
+    <div>
+        <label for="iban">Votre numéro de compte bancaire</label>
+        <input type="text" id="iban" formControlName="compte">
+        <p class="err" *ngIf="exoForm.get('compte')?.errors?.['pattern'] && exoForm.get('compte')?.touched ">Veuillez Entre un IBAN valide ( BE************ )</p>
+    </div>
+    <div>
+        <label for="adress">Avez vous une adresse?</label>
+        <input type="checkbox" formControlName="adress">
+        <p class="err" *ngIf="!exoForm.get('adress')?.valid">Ce champs est obligatoire</p>
+        <div *ngIf="exoForm.get('adress')?.value">
+            <form [formGroup]="adressForm" >
+                <div>
+                    <label for="rue">Rue</label>
+                    <input type="text" id="rue" formControlName="rue">
+                    <p class="err" *ngIf="!adressForm.get('rue')?.valid && adressForm.get('rue')?.touched">Ce champs est obligatoire</p>
+                </div>
+                <div>
+                    <label for="numero">numéro</label>
+                    <input type="text" id="numero" formControlName="numero">
+                    <p class="err" *ngIf="!adressForm.get('numero')?.valid && adressForm.get('numero')?.touched">Ce champs est obligatoire</p>
+                </div>
+                <div>
+                    <label for="postal">code postal</label>
+                    <input type="text" id="postal" formControlName="zip">
+                    <p class="err" *ngIf="!adressForm.get('zip')?.valid && adressForm.get('zip')?.touched">Ce champs est obligatoire</p>
+                </div>
+                <div>
+                    <label for="ville">ville</label>
+                    <input type="text" id="ville" formControlName="ville">
+                    <p class="err" *ngIf="!adressForm.get('ville')?.valid && adressForm.get('ville')?.touched">Ce champs est obligatoire</p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <button type="submit">Envoyez</button>
+</form>
+

@@ -1,0 +1,17 @@
+
+
+    <h3>Un petit chronomètre</h3>
+    <div ><h4 class="chrono-txt">{{message}}</h4></div>
+    <div class="chrono">
+        <div><p>{{sec | toMinuts | ajoutDuZero}} </p></div>
+        <div><p>{{sec | secundsLeft | ajoutDuZero}} </p></div>
+        <div><p>minutes</p></div>
+        <div><p>secondes</p></div>
+    </div>
+
+
+    <div class="btn-chrono">
+        <button (click)="start()" [disabled]="isTStarted">start</button>
+        <button (click)="pause()" [disabled]="isTStarted == false">pause</button>
+        <button (click)="reset()">reset</button>
+    </div>

@@ -1,0 +1,43 @@
+<h3>Formulaires</h3>
+
+<form class="formGr" [formGroup]="monForm" (ngSubmit)="ajouterDemande()">
+    <div>
+        <label for="nom">Nom</label>
+        <input id="nom" type="text" formControlName="nom" placeholder="Indiquez votre nom">
+        <p class="err" *ngIf="monForm.get('nom')?.errors?.['required'] && monForm.get('nom')?.touched">Le champs est requis</p>
+        <p class="err" *ngIf="monForm.get('nom')?.errors?.['maxlength']">votre nom est trop long</p>
+
+    </div>
+    <div>
+        <label for="prenom">Prenom</label>
+        <input id="prenom" type="text" formControlName="prenom" placeholder="Indiquez votre prénom">
+        <p class="err" *ngIf="!monForm.get('prenom')?.valid && monForm.get('prenom')?.touched">Le champs est requis</p>
+    </div>
+    <div>
+        <label for="dateNaissance">Date de naissance</label>
+        <input id="dateNaissance" type="date" formControlName="dateNaissance">
+        <p class="err" *ngIf="!monForm.get('dateNaissance')?.valid && monForm.get('dateNaissance')?.touched">Le champs est requis</p>
+    </div>
+    <div>
+        <label for="permis">Votre permis de conduire</label>
+        <select id="permis" formControlName="permis">
+            <option value="A">Permis A</option>
+            <option value="B">Permis B</option>
+            <option value="C">Permis C</option>
+        </select>
+        <p class="err" *ngIf="!monForm.get('permis')?.valid && monForm.get('permis')?.touched">Le champs est requis</p>
+    </div>
+    <div>
+        <label for="plaque">La plaque d'immatriculation</label>
+        <input id="plaque" type="text" formControlName="plaque">
+        <div class="err">
+            <p *ngIf="monForm.get('plaque')?.errors?.['required']">Le champs est requis</p>
+            <p *ngIf="!monForm.get('plaque')?.errors?.['verifPlaque']">La plaque est invalide</p>
+        </div>
+    </div>
+    <button type="submit">Ajouter</button>
+</form>
+
+<div class="data" *ngFor="let demande of listeDemandes">
+    <p>{{demande.nom}} {{demande.prenom}} <br>né le {{demande.dateDeNaissance}}<br> a demandé le permis {{demande.permis}} pour la plaque <span>{{demande.plaque}}</span></p>
+</div>

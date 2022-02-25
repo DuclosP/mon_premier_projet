@@ -1,0 +1,18 @@
+<h4>Ma liste de course améliorée</h4>
+<div class="cart">
+    <div class="produit" *ngFor="let product of cart; let i = index">
+        <div class="img" style="background: url({{product.img}}) center/cover;"></div>
+        <div class="vitre">
+            <p>Nom : {{product.name}}</p> 
+        </div>
+        <div class="vitre">
+            <p>Prix : {{product.price}} €</p>
+        </div>
+        <div class="vitre">
+            <p>Quantitée :{{product.quant}}</p>
+            <button (click)="addOne(i)">↑</button>
+            <button (click)="delOne(i)">↓</button>
+        </div>
+        <button class="button-53" (click)="sendIndex(i)">Supprimer</button>
+    </div>
+</div>

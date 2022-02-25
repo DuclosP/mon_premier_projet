@@ -1,0 +1,12 @@
+<nav>
+    <ul>
+        <li class="titre" *ngFor="let value  of liens ; let i = index">
+            <a (click)="toggle(i)" routerLink="{{liens[i].url}}" > {{liens[i].title}}</a>
+            <ul ul *ngIf="liens[i].isVisible">
+                <li *ngFor="let value of liens[i].children">
+                    <a routerLink="{{value.url}}">{{value.title}}</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>

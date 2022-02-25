@@ -1,0 +1,15 @@
+<h3>Services</h3>
+
+<div *ngIf="connected">Vous êtes bien connecté</div>
+<div *ngIf="!connected">Vous n'êtes pas connecté</div>
+
+<div class="formlogin">
+    <div class="input">
+        <input type="text" placeholder="login" [(ngModel)]="compte">
+        <input type="text" placeholder="mot de passe" [(ngModel)]="password">
+    </div>
+    <div class="bout">
+        <button (click)="login()">Se connecter</button>
+        <button (click)="logout()">Se déconnecter</button>
+    </div>
+</div>

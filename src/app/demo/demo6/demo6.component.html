@@ -1,0 +1,9 @@
+<h3>Component directive</h3>
+
+<p [ngStyle]="currentStyles">Démo ngstyle</p>
+<button (click)="switchItalic()">italique</button>
+<button (click)="switchBold()">gras</button>
+<button (click)="switchSize()">taille</button>
+
+<p class="test" [ngClass]="{red: isRed}">Démo ngClass</p>
+<button (click)="switchClass()" >Modifier la classe</button>

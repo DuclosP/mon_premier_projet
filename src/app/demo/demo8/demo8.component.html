@@ -1,0 +1,8 @@
+<h3>Input & Output</h3>
+<div class="parent">
+    <h4>Je suis le parent</h4>
+    <p>{{leSalut}}</p>
+    <app-enfant (monEvent)="afficher($event)" nom="Pierre" age="38" [tab]="listeHobbies">
+        <div>J'aime jouer a la baballe</div>
+    </app-enfant>
+</div>
